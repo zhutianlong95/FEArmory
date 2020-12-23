@@ -2,7 +2,7 @@
   <div class="home">
     <navigation-bar></navigation-bar>
     <div class="main-content">
-      11111
+      <router-view></router-view>
     </div>
   </div>
 </template>

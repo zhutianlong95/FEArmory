@@ -6,14 +6,17 @@ Vue.use(Router)
 const routes = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/scaleWindow'
   },
   {
-    path: '/home',
-    component: () => import('../views/Home')
+    path: '/scaleWindow',
+    component: () => import('../views/ScaleWindow.vue')
   }
 ]
 
 const router = new Router({ routes })
-
+// const originalPush = Router.prototype.push
+// Router.prototype.push = function push (location) {
+//   return originalPush.call(this, location).catch(err => err)
+// }
 export default router

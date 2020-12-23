@@ -1,6 +1,8 @@
 <template>
   <div class="navigation-bar">
-    <div></div>
+    <div @click="jumpTo('/scaleWindow')">
+      ScaleWindow
+    </div>
   </div>
 </template>
 
@@ -11,6 +13,11 @@ export default {
     return {
 
     }
+  },
+  methods: {
+    jumpTo (path) {
+      this.$router.push(path)
+    }
   }
 }
 </script>
@@ -19,7 +26,7 @@ export default {
 .navigation-bar {
   display: flex;
   flex-direction: column;
-  width: 70px;
+  width: 170px;
   height: 100vh;
   background-image: linear-gradient( 135deg, #FFF3B0 10%, #CA26FF 100%);;
 }
