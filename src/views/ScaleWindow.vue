@@ -7,9 +7,10 @@
       <img :src="imgSrc" alt="logo" />
     </div>
     <suspension-view
-     pos="right"
      :src="imgSrc"
-     :show="showSusView"
+     :event="targetEvent"
+     :width="500"
+     :height="500"
     >
     </suspension-view>
   </div>
@@ -23,18 +24,19 @@ export default {
   data () {
     return {
       targetEvent: null,
-      imgSrc: '../assets/logo.png'
+      imgSrc: '',
+      showSusView: false // 浮窗显示
     }
   },
   mounted () {
+    this.imgSrc = require('../assets/logo.png')
   },
   methods: {
     onMouseOver (e) {
-      console.log('mouse over')
-      console.log(e)
+      this.targetEvent = e
     },
     onMouseLeave (e) {
-      console.log('mouse leave')
+      this.targetEvent = null
     }
   }
 }
@@ -44,12 +46,13 @@ export default {
 .scale-window {
   height: 100%;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   .img-box {
-    width: 300px;
-    height: 300px;
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    width: 100px;
+    height: 100px;
     border: 1px solid #ccc;
     cursor: pointer;
     img {
