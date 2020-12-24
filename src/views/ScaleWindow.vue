@@ -9,8 +9,8 @@
     <suspension-view
      :src="imgSrc"
      :event="targetEvent"
-     :width="500"
-     :height="500"
+     :width="400"
+     :height="400"
     >
     </suspension-view>
   </div>
