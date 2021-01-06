@@ -3,12 +3,18 @@
     <div @click="jumpTo('/scaleWindow')">
       ScaleWindow
     </div>
+    <div @click="jumpTo('/counterView')">
+      Counter
+    </div>
+    <div @click="jumpTo('/timeBoardView')">
+      TimeBoard
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: '',
+  name: 'NavigationBar',
   data () {
     return {
 
