@@ -6,11 +6,11 @@ Vue.use(Router)
 const routes = [
   {
     path: '/',
-    redirect: '/scaleWindow'
+    redirect: '/suspensionView'
   },
   {
-    path: '/scaleWindow',
-    component: () => import('../views/ScaleWindow.vue')
+    path: '/suspensionView',
+    component: () => import('../views/Suspension/SuspensionView.vue')
   },
   {
     path: '/counterView',

@@ -1,26 +1,27 @@
 <template>
-  <div class="scale-window">
+  <div class="suspensionw">
     <div class="img-box"
       @mouseover="onMouseOver"
       @mouseleave="onMouseLeave"
     >
       <img :src="imgSrc" alt="logo" />
     </div>
-    <suspension-view
+    <suspension
      :src="imgSrc"
      :event="targetEvent"
      :width="400"
      :height="400"
     >
-    </suspension-view>
+    </suspension>
+    <i class="iconfont fe_armoryic_zoomin"></i>
   </div>
 </template>
 
 <script>
-import SuspensionView from '../components/SuspensionView'
+import Suspension from './components/Suspension'
 export default {
-  name: 'ScaleWindow',
-  components: { SuspensionView },
+  name: 'SuspensionView',
+  components: { Suspension },
   data () {
     return {
       targetEvent: null,
@@ -29,7 +30,7 @@ export default {
     }
   },
   mounted () {
-    this.imgSrc = require('../assets/logo.png')
+    this.imgSrc = require('../../assets/logo.png')
   },
   methods: {
     onMouseOver (e) {
@@ -43,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.scale-window {
+.suspensionw {
   height: 100%;
   width: 100%;
   position: relative;

@@ -7,14 +7,20 @@
     @mouseover="onMouseOver"
     @mouseleave="onMouseLeave">
     <div class="suspension-view-box">
-      <img id="suspension-view-img" class="suspension-view-img" :src="src" alt="" draggable="false"/>
+      <img
+        id="suspension-view-img"
+        class="suspension-view-img"
+        :src="src"
+        alt=""
+        draggable="false"
+      />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SuspensionView',
+  name: 'Suspension',
   props: {
     width: { type: Number, default: 300 },
     height: { type: Number, default: 400 },
@@ -31,7 +37,9 @@ export default {
       startX: null,
       startY: null,
       offsetTop: 0,
-      offsetLeft: 0
+      offsetLeft: 0,
+      baseScale: 1,
+      rotateDeg: 0
     }
   },
   watch: {
@@ -68,9 +76,13 @@ export default {
     onMouseOver (e) {
       this.onSelf = true
       this.showView = true
+
+      this.viewDom.addEventListener('wheel', this.onWheel)
     },
     onMouseLeave (e) {
       this.onSelf = false
+      this.removeListeners()
+      this.resetImg()
       // 鼠标不在自己身上，也不在target身上，就消息
       if (!this.onSelf || !this.onTarget) {
         this.showView = false
@@ -95,8 +107,36 @@ export default {
       this.imgDom.style.top = this.offsetTop + dy + 'px'
     },
     onMouseUp (e) {
+      this.removeListeners()
+    },
+    removeListeners () {
       this.imgDom.removeEventListener('mousemove', this.onMouseMove)
       this.imgDom.removeEventListener('mouseup', this.onMouseUp)
+      this.viewDom.removeEventListener('wheel', this.onWheel)
+    },
+    onWheel (e) {
+      const val = -e.deltaY / 1000
+      this.baseScale += val
+      if (this.baseScale < 0.1) this.baseScale = 0.1
+      this.updateTrasnform(this.baseScale, this.rotateDeg)
+    },
+    updateTrasnform (scale, deg) {
+      if (this.imgDom) {
+        this.imgDom.style.transform = `scale(${scale}) rotate(${deg}deg)`
+      }
+    },
+    resetImg () {
+      this.baseScale = 1
+      this.rotateDeg = 0
+      this.startX = null
+      this.startY = null
+      this.offsetTop = 0
+      this.offsetLeft = 0
+      if (this.imgDom) {
+        this.imgDom.style.top = 0
+        this.imgDom.style.left = 0
+      }
+      this.updateTrasnform(this.baseScale, this.rotateDeg)
     }
   }
 }

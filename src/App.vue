@@ -15,6 +15,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://at.alicdn.com/t/font_2315521_22m3hn63rxv.css');
 html, body {
   height: 100%;
   width: 100%;

@@ -1,6 +1,6 @@
 <template>
   <div class="navigation-bar">
-    <div @click="jumpTo('/scaleWindow')">
+    <div @click="jumpTo('/suspensionView')">
       ScaleWindow
     </div>
     <div @click="jumpTo('/counterView')">
