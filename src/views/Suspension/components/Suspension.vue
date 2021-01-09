@@ -14,6 +14,13 @@
         alt=""
         draggable="false"
       />
+      <div class="tools">
+        <i class="iconfont fe_armoryic_zoomin" @click="scaleAdd"></i>
+        <i class="iconfont fe_armoryic_zoomout" @click="scaleLess"></i>
+        <i class="iconfont fe_armoryls_function_refresh" @click="resetImg"></i>
+        <i class="iconfont fe_armoryic_repeal" @click="antiClockWise"></i>
+        <i class="iconfont fe_armoryic_renew" @click="clockWise"></i>
+      </div>
     </div>
   </div>
 </template>
@@ -125,6 +132,27 @@ export default {
         this.imgDom.style.transform = `scale(${scale}) rotate(${deg}deg)`
       }
     },
+    scaleAdd () {
+      if (this.imgDom) {
+        this.baseScale += 0.1
+        this.updateTrasnform(this.baseScale, this.rotateDeg)
+      }
+    },
+    scaleLess () {
+      if (this.imgDom) {
+        this.baseScale += -0.1
+        if (this.baseScale < 0.1) this.baseScale = 0.1
+        this.updateTrasnform(this.baseScale, this.rotateDeg)
+      }
+    },
+    clockWise () {
+      this.rotateDeg += 45
+      this.updateTrasnform(this.baseScale, this.rotateDeg)
+    },
+    antiClockWise () {
+      this.rotateDeg += -45
+      this.updateTrasnform(this.baseScale, this.rotateDeg)
+    },
     resetImg () {
       this.baseScale = 1
       this.rotateDeg = 0
@@ -147,8 +175,7 @@ export default {
   position: fixed;
   width: 400px;
   height: 300px;
-  border: 1px solid #ccc;
-  cursor: pointer;
+  box-shadow: 0 0 15px #888;
   .suspension-view-box {
     position: relative;
     height: 100%;
@@ -162,6 +189,26 @@ export default {
       height: 100%;
       max-width: 100%;
       max-height: 100%;
+    }
+    .tools {
+      position: absolute;
+      bottom: 10px;
+      left: 20%;
+      width: 60%;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 40px;
+      display: flex;
+      justify-content: space-around;
+      background-color: rgba($color: #000000, $alpha: .7);
+      & > i {
+        color: #fff;
+        font-size: 20px;
+        &:hover {
+          color: orange;
+          cursor: pointer;
+        }
+      }
     }
   }
 }

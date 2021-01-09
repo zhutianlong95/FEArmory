@@ -13,10 +13,6 @@
      :height="400"
     >
     </suspension>
-    <i class="iconfont fe_armoryic_zoomin"></i>
-    <i class="iconfont fe_armoryic_zoomin"></i>
-    <i class="iconfont fe_armoryic_zoomin"></i>
-    <i class="iconfont fe_armoryic_zoomin"></i>
   </div>
 </template>
 

@@ -1,5 +1,10 @@
 <template>
   <div class="navigation-bar">
+    <div v-for="(item, index) in navBar" :key="index" @click="jumpTo(item.path)">
+      {{ item.name }}
+    </div>
+  </div>
+  <!-- <div class="navigation-bar">
     <div @click="jumpTo('/suspensionView')">
       ScaleWindow
     </div>
@@ -9,7 +14,7 @@
     <div @click="jumpTo('/timeBoardView')">
       TimeBoard
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -17,7 +22,16 @@ export default {
   name: 'NavigationBar',
   data () {
     return {
-
+      navBar: [
+        {
+          name: 'FEArmory',
+          path: '/fe-armory'
+        },
+        {
+          name: 'Games',
+          path: '/games'
+        }
+      ]
     }
   },
   methods: {
@@ -31,9 +45,10 @@ export default {
 <style scoped>
 .navigation-bar {
   display: flex;
-  flex-direction: column;
-  width: 170px;
-  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 60px;
   background-image: linear-gradient( 135deg, #FFF3B0 10%, #CA26FF 100%);;
 }
 </style>
