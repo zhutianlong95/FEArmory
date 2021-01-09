@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import { component } from 'vue/types/umd'
 
 Vue.use(Router)
 
@@ -11,11 +10,23 @@ const routes = [
   },
   {
     path: '/home',
-    component: () => import('../views/Home/Home.vue')
-  },
-  {
-    path: '/fe-armory',
-    component: () => import('../views/FEArmory/FEArmory.vue')
+    component: () => import('../views/Home/Home.vue'),
+    children: [
+      {
+        path: '/fe-armory',
+        component: () => import('../views/FEArmory/FEArmory.vue'),
+        children: [
+          {
+            path: '/fe-armory/counter',
+            component: () => import('../views/FEArmory/Components/Counter/CounterView.vue')
+          },
+          {
+            path: '/fe-armory/suspension',
+            component: () => import('../views/FEArmory/Components/Suspension/SuspensionView.vue')
+          }
+        ]
+      }
+    ]
   }
   // {
   //   path: '/suspensionView',

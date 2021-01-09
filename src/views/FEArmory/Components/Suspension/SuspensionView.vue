@@ -29,7 +29,7 @@ export default {
     }
   },
   mounted () {
-    this.imgSrc = require('../../assets/logo.png')
+    this.imgSrc = require('../../../../assets/logo.png')
   },
   methods: {
     onMouseOver (e) {
