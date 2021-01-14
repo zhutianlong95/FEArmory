@@ -1,20 +1,14 @@
 <template>
   <div class="navigation-bar">
-    <div v-for="(item, index) in navBar" :key="index" @click="jumpTo(item.path)">
+    <div
+      class="nav-item"
+      v-for="(item, index) in navBar"
+      :key="index"
+      @click="jumpTo(item.path)"
+    >
       {{ item.name }}
     </div>
   </div>
-  <!-- <div class="navigation-bar">
-    <div @click="jumpTo('/suspensionView')">
-      ScaleWindow
-    </div>
-    <div @click="jumpTo('/counterView')">
-      Counter
-    </div>
-    <div @click="jumpTo('/timeBoardView')">
-      TimeBoard
-    </div>
-  </div> -->
 </template>
 
 <script>

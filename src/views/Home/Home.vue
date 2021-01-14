@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import NavigationBar from '../../components/NavigationBar/NavigationBar'
+import NavigationBar from './components/NavigationBar'
 
 export default {
   name: 'Home',

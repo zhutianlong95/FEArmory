@@ -17,21 +17,18 @@
 </template>
 
 <script>
+import FEArmoryList from '../../data/FEArmoryList.js'
 export default {
   name: 'FEArmory',
   data () {
     return {
-      menuList: [
-        {
-          name: '动画计数器',
-          path: '/fe-armory/counter'
-        },
-        {
-          name: '悬浮弹窗',
-          path: '/fe-armory/suspension'
-        }
-      ]
+      menuList: []
     }
+  },
+  created () {
+  },
+  mounted () {
+    this.menuList = FEArmoryList
   },
   methods: {
     jumpTo (path) {

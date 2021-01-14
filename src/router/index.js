@@ -23,6 +23,14 @@ const routes = [
           {
             path: '/fe-armory/suspension',
             component: () => import('../views/FEArmory/Components/Suspension/SuspensionView.vue')
+          },
+          {
+            path: '/fe-armory/echart-demo1',
+            component: () => import('../views/FEArmory/Components/EChartsDemo1/EChartsDemo1.vue')
+          },
+          {
+            path: '/fe-armory/magic-card',
+            component: () => import('../views/FEArmory/Components/MagicCard/MagicCardView.vue')
           }
         ]
       }
