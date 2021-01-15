@@ -36,13 +36,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .navigation-bar {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 60px;
-  background-image: linear-gradient( 135deg, #FFF3B0 10%, #CA26FF 100%);;
+  background-image: linear-gradient( 135deg, #FFF3B0 10%, #CA26FF 100%);
+  .nav-item {
+    cursor: pointer;
+  }
 }
 </style>

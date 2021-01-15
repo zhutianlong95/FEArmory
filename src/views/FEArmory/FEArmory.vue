@@ -56,11 +56,11 @@ export default {
       line-height: 40px;
       cursor: pointer;
       font-size: 14px;
-      transition: font-size .2s ease-in-out;
+      padding-left: 0;
+      transition: padding-left .2s ease-in-out;
       &:hover {
         background-color: #ccc;
-        color: orange;
-        font-size:18px;
+        padding-left: 20px;
       }
     }
   }
