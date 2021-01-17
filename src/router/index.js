@@ -31,6 +31,10 @@ const routes = [
           {
             path: '/fe-armory/magic-card',
             component: () => import('../views/FEArmory/Components/MagicCard/MagicCardView.vue')
+          },
+          {
+            path: '/fe-armory/drag-box',
+            component: () => import('../views/FEArmory/Components/DragBox/DragBoxView.vue')
           }
         ]
       }

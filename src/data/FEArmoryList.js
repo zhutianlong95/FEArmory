@@ -14,6 +14,10 @@ const FEArmoryList = [
   {
     name: 'Magic Card',
     path: '/fe-armory/magic-card'
+  },
+  {
+    name: 'Drag Box',
+    path: '/fe-armory/drag-box'
   }
 ]
 
