@@ -18,7 +18,7 @@
           </div>
           <div class="row-item">
             <div class="item-label">Pka2:</div>
-            <div class="item-value">11.24</div>
+            <div class="item-value">11.25</div>
           </div>
         </div>
       </div>
@@ -39,6 +39,11 @@ export default {
   min-width: 224px;
   height: 258px;
   padding: 5px;
+  transform: scale(1);
+  transition: transform .2s ease-in-out;
+  &:hover {
+    transform: scale(1.02);
+  }
   .card-content {
     height: 100%;
     border: 1px solid #d9d9d9;

@@ -59,7 +59,7 @@ export default {
       padding-left: 0;
       transition: padding-left .2s ease-in-out;
       &:hover {
-        background-color: #ccc;
+        background-color: #eaffd0;
         padding-left: 20px;
       }
     }
