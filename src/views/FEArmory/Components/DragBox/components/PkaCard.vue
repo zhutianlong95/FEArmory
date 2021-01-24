@@ -18,7 +18,7 @@
           </div>
           <div class="row-item">
             <div class="item-label">Pka2:</div>
-            <div class="item-value">11.25</div>
+            <div class="item-value">11.28</div>
           </div>
         </div>
       </div>
