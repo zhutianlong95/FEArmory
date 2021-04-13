@@ -18,6 +18,10 @@ const FEArmoryList = [
   {
     name: 'Drag Box',
     path: '/fe-armory/drag-box'
+  },
+  {
+    name: '纸牌拖拽',
+    path: '/fe-armory/card-drag'
   }
 ]
 

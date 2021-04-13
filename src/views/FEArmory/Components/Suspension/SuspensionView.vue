@@ -9,8 +9,6 @@
     <suspension
      :src="imgSrc"
      :event="targetEvent"
-     :width="400"
-     :height="400"
     >
     </suspension>
   </div>
@@ -29,7 +27,7 @@ export default {
     }
   },
   mounted () {
-    this.imgSrc = require('../../../../assets/img/logo.png')
+    this.imgSrc = require('../../../../assets/img/p5.png')
   },
   methods: {
     onMouseOver (e) {

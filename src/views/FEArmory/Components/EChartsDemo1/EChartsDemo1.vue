@@ -28,30 +28,32 @@ export default {
         yAxis: {
           type: 'value'
         },
-        series: [{
-          data: [820, 932, 901, 934, 1290, 1330, 1320],
-          type: 'line',
-          stack: '总量',
-          markLine: {
-            data: [
-            ]
+        series: [
+          {
+            data: [800, 500, 700, 1000, 600, 900, 400],
+            type: 'line',
+            // stack: '总量',
+            areaStyle: {
+              color: '#222'
+            }
+            // markLine: {
+            //   data: [
+            //   ]
+            // }
+          },
+          {
+            // data: [800, null, null, null, null, 900, null],
+            data: [700, 700, 700, 700, 700, 700, 700],
+            type: 'line',
+            // stack: '总量',
+            areaStyle: {
+              color: 'rgba(0, 0, 0, 0)'
+            },
+            markLine: {
+              data: [
+              ]
+            }
           }
-          // markArea: {
-          //   data: [
-          //     [
-          //       {
-          //         coord: ['Thu', 934]
-          //       },
-          //       {
-          //         coord: ['Sat', 1330]
-          //       },
-          //       {
-          //         coord: ['Fri', 1290]
-          //       }
-          //     ]
-          //   ]
-          // }
-        }
         // {
         //   name: '联盟广告',
         //   type: 'line',

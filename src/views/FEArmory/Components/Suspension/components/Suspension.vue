@@ -2,7 +2,10 @@
   <div
     id="suspension-view"
     class="suspension-view"
-    :style="{width: width + 'px', height: height + 'px'}"
+    :style="{
+      width: width + 'px',
+      height: height + 'px'
+    }"
     v-show="showView"
     @mouseover="onMouseOver"
     @mouseleave="onMouseLeave">
@@ -29,8 +32,8 @@
 export default {
   name: 'Suspension',
   props: {
-    width: { type: Number, default: 300 },
-    height: { type: Number, default: 400 },
+    width: { type: Number, default: null },
+    height: { type: Number, default: null },
     src: { type: String, default: '' },
     event: { type: MouseEvent, default: () => {} }
   },
@@ -46,7 +49,9 @@ export default {
       offsetTop: 0,
       offsetLeft: 0,
       baseScale: 1,
-      rotateDeg: 0
+      rotateDeg: 0,
+      originalHeight: null,
+      originalWidth: null
     }
   },
   watch: {
@@ -58,14 +63,28 @@ export default {
         this.onTarget = false
         this.cancelEvent(e)
       }
+    },
+    src (v) {
+      const img = new Image()
+      img.src = v
+      this.originalHeight = img.height
+      this.originalWidth = img.width
     }
   },
   mounted () {
+    if (!this.width && !this.height) this.useOriginalSize()
     this.viewDom = document.querySelector('#suspension-view')
     this.imgDom = document.querySelector('#suspension-view-img')
     this.imgDom.addEventListener('mousedown', this.onMouseDown)
   },
   methods: {
+    /**
+     * 没有规定悬浮框宽高的时候，使用图片原始尺寸
+     */
+    useOriginalSize () {
+      this.width = this.originalWidth
+      this.height = this.originalHeight
+    },
     handleEvent (e) {
       this.showView = true
       if (!this.viewDom) {
@@ -90,7 +109,7 @@ export default {
       this.onSelf = false
       this.removeListeners()
       this.resetImg()
-      // 鼠标不在自己身上，也不在target身上，就消息
+      // 鼠标不在自己身上，也不在target身上，就消失
       if (!this.onSelf || !this.onTarget) {
         this.showView = false
       }
